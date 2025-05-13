@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FindUrBuddy</title>
+  <link rel="stylesheet" href="styleur.css">
+</head>
+<body>
+
+</style>
+</head>
+<body>
+
+
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Search dog, cat, personality..." />
+  <button onclick="searchPets()">Search</button>
+</div>
+
+
+<div id="searchResults" class="search-results"></div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#quiz">Find Your Match</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#comment">Comment</a>
+    <li><a href="adopt.html">Adoption</a></li>
+    <a href="test.html" class="petsagram-btn"><3
+    <a href="game/home.html" class="game-btn">Learn to take care
+    </a>
+  </nav>
+
+  <header id="header-img" style="background-image: url('images/relaxed.jpg');">
+    <h1>Welcome to FindUrBuddy</h1>
+  </header>
+
+  <div class="points">
+    <input id="p1" type="radio" name="points" checked onclick="changeHeaderImage(1)">
+    <label for="p1" class="point"></label>
+
+    <input id="p2" type="radio" name="points" onclick="changeHeaderImage(2)">
+    <label for="p2" class="point"></label>
+
+    <input id="p3" type="radio" name="points" onclick="changeHeaderImage(3)">
+    <label for="p3" class="point"></label>
+  </div>
+
+  <section id="home">
+    <h2>FindUrBuddy</h2>
+    <p>Looking for your perfect furry friend? 🐶🐱 Whether you're into playful puppies or chill cats, FindUrBuddy helps you discover the pet that matches your vibe!</p>
+  </section>
+
+  <section id="quiz">
+    <h2>Find Your Pet Match</h2>
+    <button class="quiz-toggle" onclick="toggleQuiz()">🐾 Take the Quiz</button>
+
+    <form id="quizForm" style="display: none;">
+      <label>Do you go on walks daily?</label><br>
+      <img src="images/walk.jpg" alt="walk" class="quiz-img"><br>
+      <input type="radio" name="activity" value="high"> Yes, daily<br>
+      <input type="radio" name="activity" value="medium"> Sometimes<br>
+      <input type="radio" name="activity" value="low"> Prefer to stay inside<br><br>
+
+      <label>Do you prefer dogs or cats?</label><br>
+      <img src="images/dogcat.jpg" alt="dog or cat" class="quiz-img"><br>
+      <input type="radio" name="type" value="dog"> Dog<br>
+      <input type="radio" name="type" value="cat"> Cat<br>
+      <input type="radio" name="type" value="both"> Both<br><br>
+
+      <label>Do you want a pet that's independent or cuddly?</label><br>
+      <img src="images/cuddly.jpg" alt="cuddly pet" class="quiz-img"><br>
+      <input type="radio" name="personality" value="cuddly"> Cuddly<br>
+      <input type="radio" name="personality" value="independent"> Independent<br><br>
+
+      <button type="button" onclick="getPetMatch()">Get Match</button>
+    </form>
+    <div id="matchResult"></div>
+  </section>
+
+  <section id="gallery">
+      <h2>Pet Gallery</h2>
+      <button id="showMoreBtn" class="show-more-btn" onclick="showRandomPets()">Show More Pets</button>
+      <div id="petGallery" class="pet-gallery"></div>
+  </section>
+
+    <div id="petGallery" class="pet-gallery"></div>
+  </section>
+  
+  <section id="adopt">
+    <h2>Adopt Your New Best Friend</h2>
+    <div id="petCards" class="pet-cards"></div>
+  </section>
+
+
+  <div class="game-section">
+    <h2>Play with Pets!</h2>
+    <p>Join the fun and take care of your own virtual pets in our Home game!</p>
+    <a href="game/home.html" class="btn">Play Now</a>
+  </div>
+  
+
+  
+      <section id="about">
+        <h2>About Us</h2>
+        <p>
+          Welcome to <strong>FindUrBuddy</strong> – where tails wag and hearts connect! 🐾<br><br>
+      
+          We're a small but passionate team of young developers and animal lovers. What started as a fun coding project turned into something way bigger — a mission to bring humans and pets together through kindness, creativity, and a little bit of magic. ✨
+      
+          At FindUrBuddy, we believe that every person deserves a pet that matches their soul — whether you're a cozy cat lover or a high-energy dog walker. That’s why we built a playful quiz and cute gallery to help you find your furry BFF.
+      
+          <br><br>
+          💡 <strong>Special Touch:</strong> For every 100 matches made through our quiz, we’ll feature a real adoptable pet on our homepage to help them find a loving home. 💖
+      
+          <br><br>
+          So let’s find your buddy... and maybe even change a life. 🐶🐱
+      
+          <br><br>
+          <strong>Want to support our mission?</strong> Every donation helps us improve the site, support local shelters, and spread more paw-sitivity!
+        </p>
+      
+       
+        <button onclick="openDonationPopup()" 
+                style="background-color: #ff85a2; color: white; border: none; padding: 10px 20px; 
+                border-radius: 25px; font-size: 1rem; cursor: pointer; transition: 0.3s;">
+          🐾 Donate
+        </button>
+      </section>
+      
+      
+      <div id="donationPopup" style="display:none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                                    background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; 
+                                    z-index: 1000;">
+        <div style="background-color: white; padding: 2rem; border-radius: 10px; width: 300px; text-align: center;">
+          <h3>Donate to Support Adoptions 💖</h3>
+          <p>Thank you for supporting our mission to find loving homes for pets. Your donation will help keep FindUrBuddy running and assist local shelters!</p>
+      
+          <label for="donationAmount">Choose your donation amount:</label><br>
+          <select id="donationAmount" style="padding: 0.5rem; border-radius: 5px; border: 1px solid #ddd; font-size: 1rem;">
+            <option value="5">🐾 $5 - Helps provide pet food for a week.</option>
+            <option value="10">🐾 $10 - Covers a pet’s grooming session.</option>
+            <option value="20">🐾 $20 - Helps support a pet adoption event.</option>
+            <option value="50">🐾 $50 - Provides medical care for a rescued pet.</option>
+          </select><br><br>
+      
+          <button onclick="confirmDonation()" 
+                  style="background-color: #ff85a2; color: white; border: none; padding: 10px 20px; 
+                  border-radius: 25px; font-size: 1rem; cursor: pointer; transition: 0.3s;">
+            Confirm Donation
+          </button>
+          <button onclick="closeDonationPopup()" 
+                  style="background-color: #ddd; color: black; border: none; padding: 8px 16px; 
+                  border-radius: 20px; font-size: 1rem; margin-top: 1rem; cursor: pointer;">
+            Cancel
+          </button>
+        </div>
+      </div>
+      
+      
+      <div id="thankYouMessage" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                                       background-color: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center;
+                                       z-index: 1000;">
+        <div style="background-color: white; padding: 2rem; border-radius: 10px; width: 300px; text-align: center;">
+          <h3>Thank You for Your Donation! 💖</h3>
+          <p>Your generous support helps find loving homes for pets in need. You are making a real difference!</p>
+          <button onclick="closeThankYouMessage()" 
+                  style="background-color: #ff85a2; color: white; border: none; padding: 10px 20px; 
+                  border-radius: 25px; font-size: 1rem; cursor: pointer;">
+            Close
+          </button>
+        </div>
+      </div>
+      
+      <script>
+     
+        function openDonationPopup() {
+          document.getElementById("donationPopup").style.display = "flex";
+        }
+      
+        
+        function closeDonationPopup() {
+          document.getElementById("donationPopup").style.display = "none";
+        }
+      
+        
+        function confirmDonation() {
+          const amount = document.getElementById("donationAmount").value;
+          console.log(`Donated amount: $${amount}`); 
+      
+        
+          closeDonationPopup();
+          document.getElementById("thankYouMessage").style.display = "flex";
+        }
+      
+        function closeThankYouMessage() {
+          document.getElementById("thankYouMessage").style.display = "none";
+        }
+        function loadPets() {
+      fetch('fetch_pets.php')
+        .then(response => response.json())
+        .then(data => {
+          const petGallery = document.getElementById('petGallery');
+          petGallery.innerHTML = ""; 
+
+          data.forEach(pet => {
+            const petCard = document.createElement('div');
+            petCard.classList.add('pet-card');
+            
+            petCard.innerHTML = `
+              <img src="${pet.image_url}" alt="${pet.name}" class="pet-image" />
+              <h3>${pet.name}</h3>
+              <p>Type: ${pet.type}</p>
+              <p>Personality: ${pet.personality}</p>
+              <button onclick="adoptPet(${pet.id})">Adopt</button>
+            `;
+            
+            petGallery.appendChild(petCard);
+          });
+        });
+    }
+
+    
+    window.onload = loadPets;
+
+    
+    function adoptPet(petId) {
+      const confirmation = confirm("Are you sure you want to adopt this pet?");
+      if (confirmation) {
+        fetch(`adopt_pet.php?id=${petId}`)
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              alert("You've adopted the pet! Thank you for adopting.");
+              loadPets(); 
+            } else {
+              alert("Sorry, there was an error adopting the pet.");
+            }
+          });
+      }
+    }
+      </script>
+      
+     </section>
+
+  <section id="comment">
+    <h2>Comment</h2>
+    <form id="commentForm">
+      <input type="text" id="name" placeholder="Your name" required><br>
+      <textarea id="message" placeholder="Your comment" required></textarea><br>
+      <button type="button" onclick="submitComment()">Submit</button>
+    </form>
+    <div id="commentSection"></div>
+  </section>
+
+  <button class="top-button" onclick="scrollToTop()">Top</button>
+
+  <script src="main.js"></script>
+</body>
+</html>

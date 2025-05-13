@@ -1,0 +1,22 @@
+<?php
+require 'db.php';
+
+$caption = $_POST['caption'];
+$image = $_FILES['image'];
+
+if ($image['size'] > 0) {
+    $imgName = uniqid() . '_' . $image['name'];
+    $imgPath = 'uploads/' . $imgName;
+    move_uploaded_file($image['tmp_name'], $imgPath);
+} else {
+    $imgPath = '';
+}
+
+$stmt = $conn->prepare("INSERT INTO tab_post (caption, image_path, created_at) VALUES (?, ?, NOW())");
+$stmt->bind_param("ss", $caption, $imgPath);
+$stmt->execute();
+$stmt->close();
+
+header("Location: petstagram.php");
+exit();
+?>

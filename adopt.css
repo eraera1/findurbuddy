@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fef6f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #ff85a2;
+    color: white;
+    padding: 15px 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 28px;
+}
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ff5e87;
+}
+
+.search-section, .adopt-section, #map {
+    text-align: center;
+    padding: 40px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    padding: 12px;
+    font-size: 18px;
+    width: 300px;
+    border-radius: 20px;
+    border: 2px solid #ffc1cc;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: #ff85a2;
+}
+
+button {
+    background-color: #ffb6c1;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff85a2;
+}
+
+.pets-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pet-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+}
+
+.pet-card:hover {
+    transform: scale(1.05);
+}
+
+.pet-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.pet-card h3 {
+    font-size: 20px;
+    color: #ff5e87;
+    margin-top: 10px;
+}
+
+.pet-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.liked {
+    color: red;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+#mainImage .main-banner {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#map .map-container {
+    margin-top: 50px;
+    text-align: center;
+    background-color: #fef6f6;
+    padding: 20px 0;
+}
+
+#map iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#navMenu.show {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .pets-container {
+        flex-direction: column;
+    }
+
+    .pet-card {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}

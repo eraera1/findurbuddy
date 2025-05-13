@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - FindUrBuddy</title>
+  <link rel="stylesheet" href="stylelog.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Sign Up</h2>
+    <form action="signupp.php" method="post" class="auth-form">
+      <input type="text" name="name" placeholder="Username" required> 
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <select name="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button type="submit">Sign Up</button>
+      <p>Already have an account? <a href="loginn.html">Login</a></p>
+    </form>
+  </div>
+</body>
+</html>
